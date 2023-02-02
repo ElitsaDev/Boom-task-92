@@ -30,10 +30,10 @@ export default class Notification {
   this.notificationDiv.appendChild(this.container);
 
   let button = this.container.querySelector(".delete");
-  button.addEventListener("click", () => this.onDelete()); 
+  button.addEventListener("click", () => this.empty()); 
   }
 
-  onDelete(){
-    this.notificationDiv.removeChild(this.container);
+  empty(){
+    this.container.remove();
   }
 }
