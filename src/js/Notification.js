@@ -1,4 +1,7 @@
 import { formatCurrency } from "./utils.js";
+import classNames from "classnames"; 
+import Card from "./Card.js";
+
 export default class Notification {
   static get types() {
     return {
@@ -16,7 +19,8 @@ export default class Notification {
 
   render({ type, price, emoji}) {
     const template = `
-<div class="notification type-pepperoni">
+<div class="notification type-${type} ${classNames({
+  "is-danger": type === Card.types.HAWAIIAN })}">
   <button class="delete"></button>
   ${emoji} <span class="type">${type}</span> (<span class="price">${ formatCurrency(price) }</span>) has been added to your order.
 </div>
