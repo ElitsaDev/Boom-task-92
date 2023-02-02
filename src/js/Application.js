@@ -16,14 +16,17 @@ export default class Application extends EventEmitter {
       {
         type: Card.types.HAWAIIAN,
         price: 8.99,
+        emoji: '🍕',
       },
       {
         type: Card.types.PEPPERONI,
         price: 9.99,
+        emoji: '🍕',
       },
       {
         type: Card.types.MARGHERITA,
         price: 7.99,
+        emoji: '🍕',
       },
     ];
 
@@ -33,17 +36,10 @@ export default class Application extends EventEmitter {
       card.addListener(Card.events.ADD_TO_CART,  () => {
         let notification = new Notification();
         notification.render(pizza);
-
-        let notificationDiv = document.querySelector(".notifications");
-        let container = notification.container;
-
-        notificationDiv.appendChild(container);
       });
       document.querySelector(".main").appendChild(card.container);
     });
 
     this.emit(Application.events.READY);
   }
-
-
 }
