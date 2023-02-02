@@ -21,6 +21,7 @@ export default class Card extends EventEmitter {
 
     this._type = type;
     this._price = price;
+    this._emoji = '🍕';
 
     this.container = document.createElement("div");
     this.container.classList.add("card-container");
@@ -31,7 +32,7 @@ export default class Card extends EventEmitter {
 <div class="card type-${this._type} ${classNames({
       "is-danger": this._type === Card.types.HAWAIIAN,
     })}">
-  <div class="emoji">🍕</div>
+  <div class="emoji">${this._emoji}</div>
   <span class="type">${this._type}</span>
 </div>
     `;
@@ -41,6 +42,7 @@ export default class Card extends EventEmitter {
       this.emit(Card.events.ADD_TO_CART, {
         type: this._type,
         price: this._price,
+        emoji: this._emoji,
       });
     });
   }
