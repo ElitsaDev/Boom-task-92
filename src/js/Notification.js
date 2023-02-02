@@ -34,6 +34,6 @@ export default class Notification {
   }
 
   onDelete(){
-    this.container.remove();
+    this.notificationDiv.removeChild(this.container);
   }
 }
